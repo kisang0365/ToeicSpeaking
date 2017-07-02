@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     func moveView(chapter : Int?){
         let uvc = self.storyboard!.instantiateViewController(withIdentifier: "TimerVC") as! TimerView // 1
         uvc.modalTransitionStyle = UIModalTransitionStyle.crossDissolve // 2
-        uvc.selectedChapter = chapter
+       // uvc.selectedChapter = chapter
         self.present(uvc, animated: true, completion: nil) // 3
     }
     
