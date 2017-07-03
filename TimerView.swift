@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 import UIKit
 
 class TimerView : UIViewController{
@@ -15,6 +16,7 @@ class TimerView : UIViewController{
     let answerTime = [0, 45, 45, 45, 15,15 ,30, 15, 15, 30, 60, 60]
     var selectedChapter : Int? = 1
     var count : Int = 45
+    var soundPlay = SoundPlayer()
     
     var timer : Timer?
     
@@ -57,11 +59,17 @@ class TimerView : UIViewController{
     
     
     func startTimer(){
-        count = count-1
+        
+        if(count <= 0)
+        {
+            soundPlay.startSound()
+            stopTimer()
+            
+        }
+        else { count = count-1 }
         if(count < 10) { time_Label.text = "0\(count):00" }
         else { time_Label.text = "\(count):00" }
         
-        if(count == 0) {stopTimer() }
         
         print(count)
     }
