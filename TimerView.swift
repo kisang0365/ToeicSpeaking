@@ -201,4 +201,17 @@ class TimerView : UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelega
             finishRecording(success: false)
         }
     }
+    
+    // 세로 고정
+    override var shouldAutorotate: Bool{
+        return false;
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return .portrait
+    }
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        return .portrait
+    }
+    
 }
