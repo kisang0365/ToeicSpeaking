@@ -17,6 +17,7 @@ class TimerView : UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelega
     let answerTime = [0, 45, 45, 45, 15,15 ,30, 15, 15, 30, 60, 60]
     
     //Timer
+    @IBOutlet weak var btn_start: UIButton!
     var selectedChapter : Int? = 1
     var count : Int = 45
     var soundPlay = SoundPlayer()
@@ -33,11 +34,12 @@ class TimerView : UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelega
     @IBOutlet weak var chapter_Stepper: UIStepper!
     @IBOutlet weak var chapterNumber: UILabel!
     
-
+    //Back Button.
     @IBAction func backView(_ sender: Any) {
                 self.presentingViewController?.dismiss(animated: true)
     }
     
+    //Chapter Change
     @IBAction func click_Stepper(_ sender: UIStepper) {
         chapter_Label.text = Int(sender.value).description
         selectedChapter = Int(sender.value)
@@ -46,17 +48,23 @@ class TimerView : UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelega
         stopTimer()
     }
     
+    //start and pause
     @IBAction func click_start(_ sender: UIButton) {
         
         if(timer == nil){
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("startTimer"), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector:Selector("startTimer"), userInfo: nil, repeats: true)
+            
+            btn_start.setTitle("pause", for: .normal)
+        }
+        else{
+            
+            stopTimer()
+            btn_start.setTitle("start", for: .normal)
+            
         }
     }
     
-    @IBAction func click_pause(_ sender: UIButton) {
-        stopTimer()
-    }
-    
+    //reset Timer
     @IBAction func click_reset(_ sender: UIButton) {
         stopTimer()
         count = answerTime[selectedChapter!]
@@ -65,6 +73,7 @@ class TimerView : UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelega
     }
     
     
+    //TimerCreate.
     func startTimer(){
         
         if(count <= 0)
@@ -81,6 +90,7 @@ class TimerView : UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelega
         print(count)
     }
     
+    //nil of Timer
     func stopTimer(){
         self.timer?.invalidate()
         self.timer = nil
@@ -136,7 +146,7 @@ class TimerView : UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelega
     }
     
     func finishRecording(success: Bool) {
-        audioRecorder.stop()
+        audioRecorder!.stop()
         audioRecorder = nil
         
         if success {

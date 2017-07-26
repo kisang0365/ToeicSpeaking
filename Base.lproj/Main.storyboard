@@ -104,30 +104,6 @@
                                     <action selector="backView:" destination="VZ6-aL-RxW" eventType="touchUpInside" id="2O1-JJ-wBz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z76-gv-37Q">
-                                <rect key="frame" x="22" y="312" width="117" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="click_start:" destination="VZ6-aL-RxW" eventType="touchUpInside" id="rfp-80-ChU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yb3-oU-eBH">
-                                <rect key="frame" x="150" y="318" width="91" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pause"/>
-                                <connections>
-                                    <action selector="click_pause:" destination="VZ6-aL-RxW" eventType="touchUpInside" id="jw4-VS-dxb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te8-lO-Mdu">
-                                <rect key="frame" x="261" y="318" width="91" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reset"/>
-                                <connections>
-                                    <action selector="click_reset:" destination="VZ6-aL-RxW" eventType="touchUpInside" id="15S-rz-03Q"/>
-                                </connections>
-                            </button>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="c8V-RE-9N1">
                                 <rect key="frame" x="258" y="81" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -173,10 +149,27 @@
                                     <action selector="click_RecordPlay:" destination="VZ6-aL-RxW" eventType="touchUpInside" id="vl6-nt-RdN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z76-gv-37Q">
+                                <rect key="frame" x="47" y="318" width="117" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="click_start:" destination="VZ6-aL-RxW" eventType="touchUpInside" id="rfp-80-ChU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te8-lO-Mdu">
+                                <rect key="frame" x="217" y="324" width="91" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="click_reset:" destination="VZ6-aL-RxW" eventType="touchUpInside" id="15S-rz-03Q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="btn_start" destination="z76-gv-37Q" id="hnX-7h-YWV"/>
                         <outlet property="chapterNumber" destination="ELc-uf-62k" id="EvG-nr-lGT"/>
                         <outlet property="chapter_Label" destination="8S2-3v-5M7" id="hYJ-b3-KXD"/>
                         <outlet property="chapter_Stepper" destination="c8V-RE-9N1" id="aIf-sv-VQW"/>
